@@ -44,7 +44,7 @@ public class JDBCHelperTest {
 
         List<Object[]>paramList = new ArrayList<Object[]>();
         paramList.add(new Object[]{"李四",30});
-        paramList.add(new Object[]{"缺五",40});
+        paramList.add(new Object[]{"赵五",40});
         int[]a = jdbcHelper.executeBatch(sql,paramList);
         for(int i= 0; i<a.length;i++){
             System.out.println(a[i]);

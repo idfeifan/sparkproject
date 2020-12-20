@@ -5,9 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ibeifeng</groupId>
 	<artifactId>spark-project</artifactId>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<!-- TODO project name  -->
+    <modules>
+        <module>spark2_project</module>
+    </modules>
 	<name>spark-project</name>
 	<description>无意义</description>
 
@@ -18,6 +20,17 @@
 				 <version>3.8.1</version>
 				 <scope>test</scope>
 		 </dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.10.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-compiler</artifactId>
+			<version>2.10.6</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-core_2.10</artifactId>
@@ -78,6 +91,12 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.1.41</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.hive</groupId>
+			<artifactId>hive-jdbc</artifactId>
+			<version>0.13.1</version>
+		</dependency>
+
 		</dependencies>
 
 	<build>
@@ -131,8 +150,22 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<version>2.15.2</version>
+				<executions>
+					<execution>
+						<id>scala-compile-first</id>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
+
+
 	</build>
 
 	<properties>
